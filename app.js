@@ -2,27 +2,6 @@
 const profileSize = 10;
 const piecesToCut = [7, 6, 5, 4, 3, 2, 2, 9, 2, 4, 9, 8, 6];
 
-function countMinNumOfProfiles(pieces = [], size) {
-    let sum = pieces.reduce( (sum, val) => { return sum + val }, 0);
-    return Math.ceil(sum / size);
-    
-}
-
-let numOfProfiles = countMinNumOfProfiles(piecesToCut, profileSize);
-console.log(`Minimun number of profiles needed is: ${numOfProfiles}`);
-
-
-// array of (unused) profiles. ex: [0,0,0,0,0] - 5 unused pr
-
-// function makeProfilesArr(num) {
-//     let profilesArr = [];
-//     for (let i=0; i <= num; i++) {
-//         profilesArr.push(0);
-//         }
-//             return profilesArr;        
-// };
-// let profilesArr = makeProfilesArr(numOfProfiles);
-// console.log(`Profiles array: ${profilesArr}`);
 
 
 
@@ -42,8 +21,9 @@ function mainCounting(pieces) {
         }else {
             resultArray[availablePlace].push(piece);
         } 
-        console.table('rarr', resultArray);
     }) 
+    resultArray.sort((a, b) => { return b.reduce((c, d) => c+d) - a.reduce((c, d) => c+d)});
+    console.table('rarr', resultArray);
 };
 
 mainCounting(piecesToCut);
