@@ -1,8 +1,19 @@
 // fake data:
 const profileSize = 10;
-const piecesToCut = [7, 6, 5, 4, 3, 2, 2, 9, 2, 4, 9, 8, 6];
+const piecesToCut = [];
 
 
+function onSubmit(event) {
+    event.preventDefault();
+    const pieceSize = document.getElementById("size").value;
+    const pieceAmount = document.getElementById("amount").value;
+    
+    for (let i=0; i < pieceAmount; i++) {
+        piecesToCut.push(pieceSize);
+    }
+    mainCounting(piecesToCut);
+    console.log(piecesToCut);
+}
 
 
 function mainCounting(pieces) {

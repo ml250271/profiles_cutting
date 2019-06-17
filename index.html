@@ -4,7 +4,12 @@
     </head>
     <body>
         <h3>Hello TPS!</h3>
-        <input/>
+        <form name="pieceForm" id="piece-form" onsubmit="return onSubmit(event)">
+            <input type="text" name="insertPieceSize" id="size" placeholder="Unesi dimenziju">
+            <br>
+            <input type="text" name="insertNumber" id="amount" placeholder="Unesi kolicinu komada">
+            <button type="submit">Submit</button>
+        </form>
     <script src="app.js"></script>
 </body>
 </html>
