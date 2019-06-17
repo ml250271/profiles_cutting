@@ -1,18 +1,22 @@
 // fake data:
 const profileSize = 10;
 const piecesToCut = [];
-
+const inputQueue = [];
 
 function onSubmit(event) {
     event.preventDefault();
-    const pieceSize = document.getElementById("size").value;
-    const pieceAmount = document.getElementById("amount").value;
+    const pieceSize = document.getElementById("size");
+    const pieceAmount = document.getElementById("amount");
     
-    for (let i=0; i < pieceAmount; i++) {
-        piecesToCut.push(pieceSize);
-    }
-    mainCounting(piecesToCut);
-    console.log(piecesToCut);
+    inputQueue.push({pieceSize:pieceSize.value, pieceAmount:pieceAmount.value});
+    const newHTML = inputQueue.map(input => {
+        return `<p>${input.pieceSize}m X ${input.pieceAmount}</p><button onClick="alert('hi')">remove</button>`
+    }).join('');
+    
+    document.getElementById('input-queue').innerHTML = newHTML;
+    document.getElementById("piece-form").reset();
+    pieceSize.focus();
+    console.log(newHTML);
 }
 
 
