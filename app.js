@@ -1,10 +1,13 @@
 const profileSize = 10;
 const inputQueue = [];
+const pieceSize = document.getElementById("size");
+const pieceAmount = document.getElementById("amount");
+const sectionInputQueue = document.getElementById("input-queue");
+const form = document.getElementById("piece-form");
+const sectionShowResult = document.getElementById("show-result");
 
 function onSubmit(event) {
   event.preventDefault();
-  const pieceSize = document.getElementById("size");
-  const pieceAmount = document.getElementById("amount");
 
   inputQueue.push({
     pieceSize: Number(pieceSize.value),
@@ -23,8 +26,8 @@ function createHtml() {
     })
     .join("");
 
-  document.getElementById("input-queue").innerHTML = newHTML;
-  document.getElementById("piece-form").reset();
+  sectionInputQueue.innerHTML = newHTML;
+  form.reset();
 }
 
 function removeInput(buttonId) {
@@ -47,7 +50,7 @@ function displayResult() {
   });
   console.log(htmlResult.join(""));
 
-  document.getElementById("show-output").innerHTML = htmlResult;
+  sectionShowResult.innerHTML = htmlResult;
 }
 
 function mainCounting(pieces) {
