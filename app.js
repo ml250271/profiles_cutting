@@ -12,7 +12,7 @@ function onSubmit(event) {
   });
   const newHTML = inputQueue
     .map(input => {
-      return `<p>${input.pieceSize}m X ${
+      return `<p>${input.pieceSize}m x ${
         input.pieceAmount
       }</p><button onClick="alert('hi')">remove</button>`;
     })
@@ -24,14 +24,21 @@ function onSubmit(event) {
   console.log(newHTML);
 }
 
-function createPieces() {
+function displayResult() {
   const piecesToCut = [];
   inputQueue.forEach(inputObj => {
     for (let i = 0; i < inputObj.pieceAmount; i++) {
       piecesToCut.push(inputObj.pieceSize);
     }
   });
-  mainCounting(piecesToCut);
+  const resultArray = mainCounting(piecesToCut);
+  console.log(resultArray);
+  const htmlResult = [];
+  resultArray.forEach((profile, i) => {
+    htmlResult.push(`<p>Spisak dimenzija za profil ${i + 1}: (${profile}) <P>`)
+      .join;
+  });
+  document.getElementById("show-output").innerHTML = htmlResult;
 }
 
 function mainCounting(pieces) {
@@ -53,5 +60,5 @@ function mainCounting(pieces) {
   resultArray.sort((a, b) => {
     return b.reduce((c, d) => c + d) - a.reduce((c, d) => c + d);
   });
-  console.table("rarr", resultArray);
+  return resultArray;
 }
