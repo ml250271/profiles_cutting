@@ -10,18 +10,26 @@ function onSubmit(event) {
     pieceSize: Number(pieceSize.value),
     pieceAmount: Number(pieceAmount.value)
   });
+  createHtml();
+  pieceSize.focus();
+}
+
+function createHtml() {
   const newHTML = inputQueue
-    .map(input => {
+    .map((input, i) => {
       return `<p>${input.pieceSize}m x ${
         input.pieceAmount
-      }</p><button onClick="alert('hi')">remove</button>`;
+      }kom</p><button id="${i}" onClick="removeInput(${i})">remove</button>`;
     })
     .join("");
 
   document.getElementById("input-queue").innerHTML = newHTML;
   document.getElementById("piece-form").reset();
-  pieceSize.focus();
-  console.log(newHTML);
+}
+
+function removeInput(buttonId) {
+  inputQueue.splice(buttonId, 1);
+  createHtml();
 }
 
 function displayResult() {
@@ -35,9 +43,10 @@ function displayResult() {
   console.log(resultArray);
   const htmlResult = [];
   resultArray.forEach((profile, i) => {
-    htmlResult.push(`<p>Spisak dimenzija za profil ${i + 1}: (${profile}) <P>`)
-      .join;
+    htmlResult.push(`<p>Spisak dimenzija za profil ${i + 1}: (${profile}) <p>`);
   });
+  console.log(htmlResult.join(""));
+
   document.getElementById("show-output").innerHTML = htmlResult;
 }
 
