@@ -1,29 +1,66 @@
 <html>
-  <head>
-    <title>Secenje profila</title>
-  </head>
-  <body>
-    <h3>Hello TPS!</h3>
-    <form name="pieceForm" id="piece-form" onsubmit="return onSubmit(event)">
-      <input
-        type="text"
-        name="insertPieceSize"
-        id="size"
-        placeholder="Unesi dimenziju"
-      />
-      <br />
-      <input
-        type="text"
-        name="insertNumber"
-        id="amount"
-        placeholder="Unesi kolicinu komada"
-      />
-      <button type="submit">Submit</button>
-    </form>
-    <button onclick="displayResult()">Izracunaj</button>
-    <section id="input-queue"></section>
-    <section id="show-result"></section>
+    <head>
+        <title>Secenje profila</title>
+    </head>
+    <link rel="stylesheet" href="bulma.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <body>
+        <section class="hero is-success">
+            <div class="hero-body">
+                <h2 class="title is-2">
+                    TPS tools
+                </h2>
+                <h2 class="title is-6">
+                    Duzina profila koji se sece je 600 cm. Uneti dimenziju
+                    zeljenog komada, i koliko takvih je potrebno.
+                </h2>
+            </div>
+        </section>
+        <div class="columns">
+            <section class="section column">
+                <h2 class="title is-5">
+                    Unesite dimenziju komada (u cm) i kolicinu:
+                </h2>
+                <form
+                    name="pieceForm"
+                    id="piece-form"
+                    onsubmit="return onSubmit(event)"
+                    class="field is-grouped"
+                >
+                    <input
+                        type="number"
+                        name="insertPieceSize"
+                        id="size"
+                        placeholder="Unesi dimenziju"
+                        class="input"
+                        step=".01"
+                    />
+                    <input
+                        type="number"
+                        name="insertNumber"
+                        id="amount"
+                        placeholder="Unesi kolicinu komada"
+                        class="input"
+                        step=".01"
+                    />
+                    <button type="submit" class="button is-success">
+                        Submit
+                    </button>
+                </form>
+                <section id="input-queue"></section>
+            </section>
+            <div class="vertical-line"></div>
+            <section id="show-result" class="section column">
+                <button
+                    id="calculate-button"
+                    onclick="displayResult()"
+                    class="button is-fullwidth is-outlined"
+                >
+                    Izracunaj
+                </button>
+            </section>
 
-    <script src="app.js"></script>
-  </body>
+            <script src="app.js"></script>
+        </div>
+    </body>
 </html>
