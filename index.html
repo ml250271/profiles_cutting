@@ -8,7 +8,7 @@
         <section class="hero is-success">
             <div class="hero-body">
                 <h2 class="title is-2">
-                    TPS tools
+                    <img src="img/logo.png" />
                 </h2>
                 <h2 class="title is-6">
                     Duzina profila koji se sece je 600 cm. Uneti dimenziju
@@ -31,7 +31,7 @@
                         type="number"
                         name="insertPieceSize"
                         id="size"
-                        placeholder="Unesi dimenziju"
+                        placeholder="Dimenzija"
                         class="input"
                         step=".01"
                     />
@@ -39,7 +39,7 @@
                         type="number"
                         name="insertNumber"
                         id="amount"
-                        placeholder="Unesi kolicinu komada"
+                        placeholder="Kolicina"
                         class="input"
                         step=".01"
                     />
@@ -50,14 +50,15 @@
                 <section id="input-queue"></section>
             </section>
             <div class="vertical-line"></div>
-            <section id="show-result" class="section column">
+            <section class="section column is-two-thirds">
                 <button
                     id="calculate-button"
                     onclick="displayResult()"
-                    class="button is-fullwidth is-outlined"
+                    class="button is-success"
                 >
                     Izracunaj
                 </button>
+                <div id="show-result"></div>
             </section>
 
             <script src="app.js"></script>

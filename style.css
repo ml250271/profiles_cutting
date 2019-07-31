@@ -2,6 +2,10 @@ input {
     margin-right: 10px;
 }
 
+.hero-body {
+    padding: 24px;
+}
+
 .is-level {
     margin-bottom: 10px !important;
 }
@@ -15,6 +19,11 @@ input {
 
 #calculate-button {
     font-weight: bold;
+    margin-bottom: 18px;
+}
+
+#reset-button {
+    float: left;
 }
 
 .wrapper {
@@ -32,7 +41,7 @@ input {
     display: inline-block;
     height: 150%;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1rem;
     line-height: 30px;
     text-shadow: 0 0 3px black;
     text-align: center;

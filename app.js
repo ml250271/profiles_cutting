@@ -1,5 +1,5 @@
 const profileSize = 600;
-const inputQueue = [];
+let inputQueue = [];
 const pieceSize = document.getElementById("size");
 const pieceAmount = document.getElementById("amount");
 const sectionInputQueue = document.getElementById("input-queue");
@@ -39,7 +39,7 @@ function createHtml() {
         .map((input, i) => {
             return `<div class="is-level"><span class="tag is-success is-large">${
                 input.pieceSize
-            } m x ${
+            } cm x ${
                 input.pieceAmount
             } kom<button class="delete" onClick="removeInput(${i})"></button></span></div>`;
         })
@@ -88,7 +88,6 @@ function displayResult() {
 
     const newHtml =
         `<div>Broj potrebnih profila je ${resultArray.length}:</div>` +
-        `<div>Ostatak, redom: ${restArray}</div><br>` +
         resultArray
             .map(profile => {
                 const restOfProfile =
@@ -106,7 +105,8 @@ function displayResult() {
                 )}<div class="piece" style="width: ${(restOfProfile * 100) /
                     profileSize}%";>${restOfProfile}cm</div></div>`;
             })
-            .join("");
+            .join("") +
+        `<button id="reset-button"onclick="reset()"class="button is-outlined is-danger">Obrisi</button>`;
     console.log(newHtml);
 
     document.getElementById("show-result").innerHTML = newHtml;
@@ -132,4 +132,9 @@ function mainCounting(pieces) {
         return b.reduce((c, d) => c + d) - a.reduce((c, d) => c + d);
     });
     return resultArray;
+}
+function reset() {
+    inputQueue = [];
+    createHtml();
+    document.getElementById("show-result").innerHTML = "";
 }
