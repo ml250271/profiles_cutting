@@ -87,8 +87,8 @@ function displayResult() {
   });
 
   const newHtml =
-    `<div>Broj potrebnih profila je ${resultArray.length}:</div><br>` +
-    `<div>Ostatak, redom: ${restArray}</div>` +
+    `<div>Broj potrebnih profila je ${resultArray.length}:</div>` +
+    `<div>Ostatak, redom: ${restArray}</div><br>` +
     resultArray
       .map(profile => {
         const restOfProfile =
