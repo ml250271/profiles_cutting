@@ -77,8 +77,18 @@ function displayResult() {
   });
   const resultArray = mainCounting(piecesToCut);
   console.log(resultArray);
+  const restArray = resultArray.map(profile => {
+    return (
+      profileSize -
+      profile.reduce((t, e) => {
+        return (t += e);
+      })
+    );
+  });
+
   const newHtml =
     `<div>Broj potrebnih profila je ${resultArray.length}:</div><br>` +
+    `<div>Ostatak, redom: ${restArray}</div>` +
     resultArray
       .map(profile => {
         const restOfProfile =
