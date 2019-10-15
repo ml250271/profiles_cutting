@@ -46,8 +46,6 @@ function createHtml() {
         })
         .join("")
 
-    console.log(newHTML)
-
     sectionInputQueue.innerHTML = newHTML
     form.reset()
 }
